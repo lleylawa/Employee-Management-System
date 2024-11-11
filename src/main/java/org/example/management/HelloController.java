@@ -48,20 +48,21 @@ public class HelloController {
                 cellData.getValue() instanceof FullTimeEmployee ? "Full-time" :
                         cellData.getValue() instanceof PartTimeEmployee ? "Part-time" : "Contractor"));
 
-        // Wrap calculateSalary() in SimpleDoubleProperty
+        // Configure the salary column to display the result of the calculateSalary() method
         salaryColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().calculateSalary()).asObject());
 
         addButton.setOnAction(e -> addEmployee());
         calculateButton.setOnAction(e -> tableView.refresh());
         removeButton.setOnAction(e -> removeEmployee());
     }
-
+    // Method to add a new employee based on input fields
     private void addEmployee() {
         String name = nameField.getText();
         String type = typeDropdown.getValue();
 
         try {
             Employee employee = null;
+            // Check employee type and create the corresponding object
             if ("Full-time".equals(type)) {
                 double annualSalary = Double.parseDouble(annualSalaryField.getText());
                 employee = new FullTimeEmployee(name, annualSalary);
@@ -74,23 +75,24 @@ public class HelloController {
                 int maxHours = Integer.parseInt(maxHoursField.getText());
                 employee = new Contractor(name, hourlyRate, maxHours);
             }
-
+            // If the employee was created successfully, add them to the list and clear the input fields
             if (employee != null) {
                 employees.add(employee);
                 clearFields();
             }
         } catch (NumberFormatException ex) {
+            // Show an error alert if input values are invalid
             showAlert();
         }
     }
-
+    // Method to remove the selected employee from the table
     private void removeEmployee() {
         Employee selectedEmployee = tableView.getSelectionModel().getSelectedItem();
         if (selectedEmployee != null) {
             employees.remove(selectedEmployee);
         }
     }
-
+    // Method to clear all input fields after adding an employee
     private void clearFields() {
         nameField.clear();
         annualSalaryField.clear();
@@ -99,7 +101,7 @@ public class HelloController {
         maxHoursField.clear();
         typeDropdown.getSelectionModel().clearSelection();
     }
-
+    // Method to show an alert if there's an error in input data
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Invalid Input");
