@@ -14,12 +14,12 @@ This Employee Management system program, built with JavaFX, allows users to add,
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/lleylawa/Employee-Management-System.git
    ```
-
+   
 2. **Build and Run the Application**:
    - Use a Java IDE (IntelliJ)
-   compile and run via JavaFX setup in your IDE).
+   - (compile and run via JavaFX setup in your IDE).
 
 ## Application Usage
 
