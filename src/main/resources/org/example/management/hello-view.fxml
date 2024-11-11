@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.management.HelloController" style="-fx-background-color: #f5f5f5;">
+  <padding>
+    <Insets top="25" right="25" bottom="25" left="25"/>
+  </padding>
+
+  <TableView fx:id="tableView" prefHeight="400" prefWidth="850" style="-fx-table-cell-border-color: transparent;">
+    <columns>
+      <TableColumn fx:id="nameColumn" text="Name" prefWidth="250" style="-fx-font-weight: bold; -fx-alignment: CENTER-LEFT;"/>
+      <TableColumn fx:id="typeColumn" text="Employee Type" prefWidth="250" style="-fx-font-weight: bold; -fx-alignment: CENTER-LEFT;"/>
+      <TableColumn fx:id="salaryColumn" text="Salary" prefWidth="250" style="-fx-font-weight: bold; -fx-alignment: CENTER-RIGHT;"/>
+    </columns>
+  </TableView>
+
+  <HBox spacing="15" alignment="CENTER_LEFT">
+    <Label text="Name:"/>
+    <TextField fx:id="nameField" prefWidth="200"/>
+    <Label text="Type:"/>
+    <ComboBox fx:id="typeDropdown" prefWidth="150"/>
+  </HBox>
+
+  <HBox spacing="15" alignment="CENTER_LEFT">
+    <Label text="Annual Salary (Full-time):"/>
+    <TextField fx:id="annualSalaryField" prefWidth="120"/>
+    <Label text="Hourly Wage (Part-time &amp; Contractor):"/>
+    <TextField fx:id="hourlyWageField" prefWidth="120"/>
+    <Label text="Hours Worked (Part-time):"/>
+    <TextField fx:id="hoursWorkedField" prefWidth="70"/>
+    <Label text="Max Hours (Contractor):"/>
+    <TextField fx:id="maxHoursField" prefWidth="70"/>
+  </HBox>
+
+  <HBox spacing="15" alignment="CENTER">
+    <Button fx:id="addButton" text="Add Employee" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 150;"/>
+    <Button fx:id="calculateButton" text="Calculate Salaries" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 150;"/>
+    <Button fx:id="removeButton" text="Remove Employee" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 150;"/>
+  </HBox>
+</VBox>
